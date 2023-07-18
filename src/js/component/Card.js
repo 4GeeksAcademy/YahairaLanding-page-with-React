@@ -1,5 +1,9 @@
 import React from "react";
 
+let styleC={
+    width: "18rem"
+}
+
 
 
 //create your first component
@@ -7,7 +11,7 @@ const Card = () => {
     return (
         <div className="container1">
 
-            <div className="card" style="width: 18rem;">
+            <div className="card" style={styleC}>
                 <img src="..." class="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
