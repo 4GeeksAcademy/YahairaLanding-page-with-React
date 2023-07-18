@@ -7,7 +7,7 @@ let styleC={
 
 
 //create your first component
-const Card = () => {
+const Card = (props) => {
     return (
         <div className="container1">
 
