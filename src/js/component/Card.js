@@ -1,26 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-let styleC={
-    width: "18rem"
-}
+const Card = props => {
+	return (
+		<div className="card h-100 w-100">
+			<img src={props.imgSrc} className="card-img-top" alt="..." />
+			<div className="card-body">
+				<h5 className="card-title">{props.title}</h5>
+				<p className="card-text">{props.description}</p>
+				<a href={props.buttonUrl} className="btn btn-primary">
+					{props.buttonLabel}
+				</a>
+			</div>
+		</div>
+	);
+};
 
-
-
-//create your first component
-const Card = (props) => {
-    return (
-        <div className="container1">
-
-            <div className="card" style={styleC}>
-                <img src="..." class="card-img-top" alt="..."/>
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-            </div>
-        </div>
-    );
+Card.propTypes = {
+	title: PropTypes.string,
+	description: PropTypes.string,
+	buttonUrl: PropTypes.string,
+	buttonLabel: PropTypes.string,
+	imgSrc: PropTypes.string
 };
 
 export default Card;

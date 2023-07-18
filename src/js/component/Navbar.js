@@ -1,32 +1,48 @@
-function Navbar(){
-    return(<nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div className="container-fluid">
-      <a className="navbar-brand text-info" href="#">Totilo1</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarCollapse">
-        <ul className="navbar-nav me-auto mb-2 mb-md-0">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#myCarousel">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#Services">titulo 2</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#Articles">titulo 3</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#Footer">Contacto</a>
-          </li>
-        </ul>
-        <form className="d-flex" role="search">
-          <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-          <button className="btn btn-outline-primary" type="submit">Buscar</button>
-        </form>
-      </div>
-    </div>
-  </nav>)
-}
+import React from "react";
+import PropTypes from "prop-types";
+
+// Check index.scss file
+// import "../../styles/index.scss";
+
+const Navbar = props => {
+	const buildMenu = props.menu.map((item, index) => {
+		return (
+			<li key={index} className="nav-item">
+				<a className="nav-link" href={item.url}>
+					{item.label}
+				</a>
+			</li>
+		);
+	});
+
+	return (
+		<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div className="container">
+				<a className="navbar-brand" href="#">
+					{props.brand}
+				</a>
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon" />
+				</button>
+				<div className="collapse navbar-collapse" id="navbarNav">
+					{/* call function buildMenu to generate menu */}
+					<ul className="navbar-nav ml-auto">{buildMenu}</ul>
+				</div>
+			</div>
+		</nav>
+	);
+};
+
+Navbar.propTypes = {
+	menu: PropTypes.array,
+	brand: PropTypes.string
+};
 
 export default Navbar;

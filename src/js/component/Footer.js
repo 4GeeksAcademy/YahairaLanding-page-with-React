@@ -1,18 +1,23 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
-const Footer = () => {
-  return (
-    <div>
-      <footer id="Footer" className="container">
-        <p className="float-end"><a href="#">Back to top</a></p>
-        <p>© 2023  · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
-    </div>
-  )
-}
+const Footer = props => {
+	return (
+		<footer className="footer mt-3 py-5 bg-dark">
+			<div className="container text-center">
+				<span className="text-muted">{props.footerDescription}</span>
+			</div>
+		</footer>
+	);
+};
 
+Footer.propTypes = {
+	footerDescription: PropTypes.string
+};
 
 export default Footer;
+
+
 
 
 
